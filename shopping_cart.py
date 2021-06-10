@@ -38,27 +38,35 @@ def to_usd(my_price):
 
 
 # TODO: write some Python code here to produce the desired output
+#
+#INFORMATION CAPTURE / INPUTS
+#
 
+selected_id = input("Please put in a product ID or enter 'DONE': ")
+matching_product = [p for p in products if p["id"] == selected_id]
+print(matching_product)
+print(type(matching_product))
 #print(len(products))
 
 
 # capture product ids until we're done (use infinite while loop)
 
-selected_ids = []
+#selected_ids = []
 
 
-while True:
+#while True:
 
-selected_id = input("please select / scan a valid product ID or enter 'DONE': ")
-if selected_ids.upper() == "done":
-    break
-else:
-    selected_ids.append(selected_id)
+#selected_id = input("please select / scan a valid product ID or enter 'DONE': ")
 
-print("We have eneded the loop")
-print(selected_ids)
+#if selected_ids.upper() == "done":
+    #break
+#else:
+   # selected_ids.append(selected_id)
+
+#print("We have eneded the loop")
+#print(selected_ids)
 
 #perform product lookups to determine what the products name and price are
 
-for selected_id in selected_ids:
-print(selected_id)
+#for selected_id in selected_ids:
+#print(selected_id)
