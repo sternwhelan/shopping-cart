@@ -1,5 +1,5 @@
 # shopping_cart.py
-
+#product library
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -25,32 +25,22 @@ products = [
 
 
 def to_usd(my_price):
-    
-    #Converts a numeric value to usd-formatted string, for printing and display purposes.
-
-    #Param: my_price (int or float) like 4000.444444
-
-    #Example: to_usd(4000.444444)
-
-    #Returns: $4,000.44
-    
-    return f"${my_price:,.2f}" #> $12,000.71
+    return f"${my_price:,.2f}"
 
 #all datetime info and code adapted from: https://phoenixnap.com/kb/get-current-date-time-python
 import datetime
 e = datetime.datetime.now()
 
+#defining taxrate variable for NYC
+tax_rate = .08875
+
 #INFORMATION CAPTURE / INPUTS
-#
 total_price = 0
 selected_ids = []
 
 
 while True:
-
-
     selected_id = input("Please put in a product ID or enter 'DONE' if there are no more items: ")
-
     if selected_id == "DONE":
         break
     else:
@@ -64,7 +54,12 @@ for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
-    
+
+added_tax = total_price * tax_rate
+
+final_price = total_price + added_tax
+
+
 print("-------------------")
 print("PYTHON 101 GROCERY")
 print("www.python101grocery.com")
@@ -72,9 +67,15 @@ print("-------------------")
 print ("TODAY'S DATE: %s/%s/%s" % (e.day, e.month, e.year)) 
 print("CHECKOUT AT: %s:%s.%s" % (e.hour, e.minute, e.second))
 print("-------------------")
-print("SELECTED PRODUCTs: " + matching_product["name"] +" " + str(matching_product["price"]))
+print("SELECTED PRODUCTS: ")
+print(matching_product["name"] + " (" + to_usd(matching_product["price"]) + ")")
 print("-------------------")
-print("TOTAL PRICE: " + str(total_price))
+print("SUBTOTAL: " + to_usd(total_price))
+print("NY STATE SALES TAX: " + to_usd(added_tax))
+print("TOTAL PRICE: " + to_usd(final_price))
+print("-------------------")
+print("THANK YOU, SEE YOU AGAIN SOON!")
+print("-------------------")
 
 #print(len(products))
 
