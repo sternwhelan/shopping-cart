@@ -58,7 +58,7 @@ print ("TODAY'S DATE: %s/%s/%s" % (e.day, e.month, e.year))
 print("CHECKOUT AT: %s:%s.%s" % (e.hour, e.minute, e.second))
 print("-------------------")
 
-
+#Hemant helped me fix the loop issue below
 
 print("SELECTED PRODUCTS: ")
 for selected_id in selected_ids:
@@ -78,28 +78,3 @@ print("TOTAL PRICE: " + to_usd(final_price))
 print("-------------------")
 print("THANK YOU, SEE YOU AGAIN SOON!")
 print("-------------------")
-
-#print(len(products))
-
-
-# capture product ids until we're done (use infinite while loop)
-
-#selected_ids = []
-
-
-#while True:
-
-#selected_id = input("please select / scan a valid product ID or enter 'DONE': ")
-
-#if selected_ids.upper() == "done":
-    #break
-#else:
-   # selected_ids.append(selected_id)
-
-#print("We have eneded the loop")
-#print(selected_ids)
-
-#perform product lookups to determine what the products name and price are
-
-#for selected_id in selected_ids:
-#print(selected_id)
