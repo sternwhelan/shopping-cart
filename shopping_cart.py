@@ -50,16 +50,6 @@ while True:
 
 #print(selected_ids)
 
-for selected_id in selected_ids:
-    matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
-    matching_product = matching_products[0]
-    total_price = total_price + matching_product["price"]
-
-added_tax = total_price * tax_rate
-
-final_price = total_price + added_tax
-
-
 print("-------------------")
 print("PYTHON 101 GROCERY")
 print("www.python101grocery.com")
@@ -67,8 +57,20 @@ print("-------------------")
 print ("TODAY'S DATE: %s/%s/%s" % (e.day, e.month, e.year)) 
 print("CHECKOUT AT: %s:%s.%s" % (e.hour, e.minute, e.second))
 print("-------------------")
+
+
+
 print("SELECTED PRODUCTS: ")
-print(matching_product["name"] + " (" + to_usd(matching_product["price"]) + ")")
+for selected_id in selected_ids:
+    matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+    matching_product = matching_products[0]
+    total_price = total_price + matching_product["price"]
+    print(matching_product["name"] + " (" + to_usd(matching_product["price"]) + ")")
+
+added_tax = total_price * tax_rate
+
+final_price = total_price + added_tax
+
 print("-------------------")
 print("SUBTOTAL: " + to_usd(total_price))
 print("NY STATE SALES TAX: " + to_usd(added_tax))
