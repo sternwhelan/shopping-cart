@@ -36,9 +36,10 @@ def to_usd(my_price):
     
     return f"${my_price:,.2f}" #> $12,000.71
 
+#all datetime info and code adapted from: https://phoenixnap.com/kb/get-current-date-time-python
+import datetime
+e = datetime.datetime.now()
 
-# TODO: write some Python code here to produce the desired output
-#
 #INFORMATION CAPTURE / INPUTS
 #
 total_price = 0
@@ -63,8 +64,16 @@ for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
-    print("SELECTED PRODUCT: " + matching_product["name"] +" " + str(matching_product["price"]))
-
+    
+print("-------------------")
+print("PYTHON 101 GROCERY")
+print("www.python101grocery.com")
+print("-------------------")
+print ("TODAY'S DATE: %s/%s/%s" % (e.day, e.month, e.year)) 
+print("CHECKOUT AT: %s:%s.%s" % (e.hour, e.minute, e.second))
+print("-------------------")
+print("SELECTED PRODUCTs: " + matching_product["name"] +" " + str(matching_product["price"]))
+print("-------------------")
 print("TOTAL PRICE: " + str(total_price))
 
 #print(len(products))
